@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --text-color: #323238;
+  --bg-color: #ffffff;
+  --bg-card-color: #E1E1E6;
+  --bg-card-hover-color: #c7c7ce;
+  --bg-card-selected-color: #02799D;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.running #play {
+  display: none;
+}
+
+html:not(.running) #pause {
+  display: none;
+}
+
+#app {
+  display: grid;
+  place-content: center;
+  gap: 19.2rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 32rem));
+
+  height: 100vh;
+
+  padding-inline: 2rem;
+}
+
+#timer-wrapper {
+  width: 32.1rem;
+
+  display: grid;
+  place-content: center;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+
+  max-width: 32.1rem;
+  margin-inline: auto;
+
+  font-size: 12.6rem;
+  font-weight: 500;
+
+  color: var(--text-color);
+  
+  padding-bottom: 1.7rem;
+}
+
+#controls {
+  width: 32.1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#controls button {
+  background: transparent;
+  border: .4rem solid var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+#controls button img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+img, svg{
+  pointer-events: none;
+  user-select: none;
+}
+
+#sounds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+
+  max-width: 31rem;
+  margin-inline: auto;
+}
+
+#sounds button {
+  width: 13.8rem;
+  height: 15.2rem;
+  
+  background: var(--bg-card-color);
+
+  transition: background .15s;
+
+  border: none;
+  border-radius: 2.4rem;
+
+  cursor: pointer;
+}
+
+#sounds button:hover {
+  background: var(--bg-card-hover-color);
+}
+
+#sounds button svg {
+  color: var(--text-color);
+}
+
+#sounds button.active {
+  background: var(--bg-card-selected-color);
+}
+
+#sounds button.active svg {
+  color: var(--bg-color);
+}
+
+@media (max-width: 400px) {
+  #app {
+    gap: 5rem;
+  }
+
+  #timer {
+    font-size: 9rem;
+  }
+
+  #sounds button {
+    width: 10rem;
+    height: 11rem;
+  }
+
+  #sounds button svg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
